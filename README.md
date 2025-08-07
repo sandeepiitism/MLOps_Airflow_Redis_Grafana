@@ -31,3 +31,21 @@ This MLOps Project involves Airflow, Redis, Alibi, GCP, Grafana, Prometheus
 3. `storage object viewer`
 
 <img width="1921" height="838" alt="Image" src="https://github.com/user-attachments/assets/b938ebf7-0dd5-464d-93e0-979c2f6516c0" />
+
+#### setup python workflow
+
+#### Setup Astro
+- Download the astro CLI and install
+- Add the keys.json in include folder
+- Add the deployement code in config under .astro:
+
+``` bash
+deployments:
+  - name: dev
+    executor: celery
+    image:
+      name: quay.io/astronomer/astro-runtime:7.3.0
+    env: dev
+    volumes:
+      - ./include:/usr/local/airflow/include
+```
